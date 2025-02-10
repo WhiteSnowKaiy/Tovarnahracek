@@ -12,6 +12,7 @@ Soucastky soucastky = new Soucastky();
         pole.add(new Druce("Kuba",material,soucastky));
         pole.add(new Dnohy("Petr",material,soucastky));
         pole.add(new Dstvoritel("STEVE",material,soucastky));
+        pole.add(new Dstvoritel("STEVE5",material,soucastky));
 
         for (int i = 0; i < pole.size(); i++) {
             pole.get(i).start();

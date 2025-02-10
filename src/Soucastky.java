@@ -21,32 +21,31 @@ public class Soucastky {
         panenka++;
     }
 
-    public void vytvorenipanenky() throws InterruptedException {
+    public void  vytvorenipanenky() throws InterruptedException {
         hlava--;
         telo--;
         ruce--;
         nohy--;
         addpanenka();
-
     }
 
-    public int getHlava() {
+    public synchronized int getHlava() {
         return hlava;
     }
 
-    public int getTelo() {
+    public synchronized int getTelo() {
         return telo;
     }
 
-    public int getRuce() {
+    public synchronized int getRuce() {
         return ruce;
     }
 
-    public int getNohy() {
+    public synchronized int getNohy() {
         return nohy;
     }
 
-    public int getPanenka() {
+    public synchronized int getPanenka() {
         return panenka;
     }
 }
