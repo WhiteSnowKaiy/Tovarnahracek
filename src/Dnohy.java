@@ -9,7 +9,7 @@ public class Dnohy extends Delnik{
         while (true){
             System.out.println("Začína vyrábět nohy "+super.getJmeno());
             while (!super.getMaterial().uberplast(POCET_PLASTU)){
-                System.out.println("Vyrobce čeka na material ");
+                System.out.println("Vyrobce čeka na material "+super.getJmeno());
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -17,7 +17,7 @@ public class Dnohy extends Delnik{
                 }
             }
             getSoucatsky().addnohy();
-            System.out.println("Dokončil nohy");
+            System.out.println("Dokončil nohy("+getSoucatsky().getNohy() +")");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

@@ -9,7 +9,7 @@ public class Dtelo extends Delnik{
         while (true){
             System.out.println("Začína vyrábět tělo "+super.getJmeno());
             while (!super.getMaterial().uberplast(POCET_PLASTU)){
-                System.out.println("Čeká na material");
+                System.out.println("Čeká na material "+super.getJmeno());
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -18,7 +18,7 @@ public class Dtelo extends Delnik{
 
             }
             getSoucatsky().addtelo();
-            System.out.println("Dokončil tělo");
+            System.out.println("Dokončil tělo("+getSoucatsky().getTelo() +")");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

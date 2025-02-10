@@ -8,7 +8,7 @@ public class Druce extends Delnik{
         while (true){
             System.out.println("Začína vyrábět ruce "+super.getJmeno());
             while (!super.getMaterial().uberplast(POCET_PLASTU)){
-                System.out.println("Čeká na material");
+                System.out.println("Čeká na material "+super.getJmeno());
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -16,7 +16,7 @@ public class Druce extends Delnik{
                 }
             }
             getSoucatsky().addruce();
-            System.out.println("Dokončil ruce");
+            System.out.println("Dokončil ruce("+getSoucatsky().getRuce() +")");
 
             try {
                 Thread.sleep(1000);

@@ -3,6 +3,7 @@ public class Soucastky {
     private int telo;
     private int ruce;
     private int nohy;
+    private int panenka;
 
     public void addhlava(){
         hlava++;
@@ -16,16 +17,21 @@ public class Soucastky {
     public void addnohy(){
         nohy++;
     }
+    public void addpanenka(){
+        panenka++;
+    }
 
-    public void vytvorenipanenky(){
+    public void vytvorenipanenky() throws InterruptedException {
        if (getHlava()>0 && getTelo()>0 && getRuce()>0 && getNohy()>0){
            hlava--;
            telo--;
            ruce--;
            nohy--;
            System.out.println("Panenka je postavena");
+           addpanenka();
+       }else {       System.out.println("Nejsou soucastky");
        }
-        System.out.println("Nejsou soucastky");
+       Thread.sleep(1000);
     }
 
     public int getHlava() {
@@ -42,5 +48,9 @@ public class Soucastky {
 
     public int getNohy() {
         return nohy;
+    }
+
+    public int getPanenka() {
+        return panenka;
     }
 }
