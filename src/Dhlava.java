@@ -5,7 +5,7 @@ public class Dhlava extends Delnik{
         super(jmeno, material, soucatsky);
     }
         private final int POCET_PLASTU=10;
-    private final int POCET_VLASU=20;
+    private final int POCET_VLASU=2;
     @Override
     public void run() {
 

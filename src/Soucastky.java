@@ -22,16 +22,12 @@ public class Soucastky {
     }
 
     public void vytvorenipanenky() throws InterruptedException {
-       if (getHlava()>0 && getTelo()>0 && getRuce()>0 && getNohy()>0){
-           hlava--;
-           telo--;
-           ruce--;
-           nohy--;
-           System.out.println("Panenka je postavena");
-           addpanenka();
-       }else {       System.out.println("Nejsou soucastky");
-       }
-       Thread.sleep(1000);
+        hlava--;
+        telo--;
+        ruce--;
+        nohy--;
+        addpanenka();
+
     }
 
     public int getHlava() {
