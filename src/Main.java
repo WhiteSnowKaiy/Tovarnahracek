@@ -13,12 +13,23 @@ Soucastky soucastky = new Soucastky();
         pole.add(new Dnohy("Petr",material,soucastky));
         pole.add(new Dstvoritel("STEVE",material,soucastky));
         pole.add(new Dstvoritel("STEVE5",material,soucastky));
-
+        pole.add(new Dstvoritel("STEVE69",material,soucastky));
+        pole.add(new Ddodavatel("dodavatel",material,soucastky));
         for (int i = 0; i < pole.size(); i++) {
             pole.get(i).start();
         }
         for (int i = 0; i < pole.size(); i++) {
             pole.get(i).join();
         }
+
+        System.out.println("Celkem se vyrobilo hlav "+soucastky.getCelkem_vyrobeno_hlav());
+        System.out.println("Celkem se vyrobilo těl "+soucastky.getCelkem_vyrobeno_telo());
+        System.out.println("Celkem se vyrobilo ruk "+soucastky.getCelkem_vyrobeno_ruce());
+        System.out.println("Celkem se vyrobilo noh "+soucastky.getCelkem_vyrobeno_noh());
+        System.out.println("Celkem se vyrobilo panenek "+soucastky.getCelkem_vyrobeno_panenek());
+        System.out.println("Zbylo plastu "+material.getPlast());
+        System.out.println("Zbylo sad vlasů "+material.getVlasy());
+
+
     }
 }

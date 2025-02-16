@@ -18,6 +18,13 @@ public class Material {
         return false;
     }
 
+    public void pridatplast(){
+        plast=plast+550;
+    }
+    public void pridavlasy(){
+        vlasy=vlasy+6;
+    }
+
     public int getPlast() {
         return plast;
     }

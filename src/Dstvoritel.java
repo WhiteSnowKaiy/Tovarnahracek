@@ -5,14 +5,14 @@ public class Dstvoritel extends Delnik{
     private final int POCET_PLASTU=20;
     @Override
     public void run() {
-        while (true){
+        while (getSoucatsky().maximalnipocetpanenek()){
             System.out.println("Začína vyrábět panenku "+super.getJmeno());
             try {
                 if (getSoucatsky().getHlava()>0 && getSoucatsky().getTelo()>0
                     && getSoucatsky().getRuce()>0 && getSoucatsky().getNohy()>0){
                     System.out.println("Panenka je postavena"+getJmeno());
                     getSoucatsky().vytvorenipanenky();
-                }else {System.out.println("Nejsou soucastky") ;
+                }else {System.out.println("Nejsou soucastky pro panenku") ;
                     Thread.sleep(1000);;
                 }
                 System.out.println("Pocet panenek ("+getSoucatsky().getPanenka()+")");

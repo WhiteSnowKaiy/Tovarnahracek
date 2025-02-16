@@ -8,11 +8,11 @@ public class Dhlava extends Delnik{
     private final int POCET_VLASU=2;
     @Override
     public void run() {
-
-        while (true){
+        while (getSoucatsky().maximalnipocetpanenek()){
             System.out.println("Začína vyrábět hlavu "+super.getJmeno());
             while (!super.getMaterial().uberplast(POCET_PLASTU)){
                 System.out.println("Čeká na material "+super.getJmeno());
+
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {

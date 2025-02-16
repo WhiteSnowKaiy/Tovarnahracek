@@ -5,7 +5,7 @@ public class Druce extends Delnik{
     private final int POCET_PLASTU=20;
     @Override
     public void run() {
-        while (true){
+        while (getSoucatsky().maximalnipocetpanenek()){
             System.out.println("Začína vyrábět ruce "+super.getJmeno());
             while (!super.getMaterial().uberplast(POCET_PLASTU)){
                 System.out.println("Čeká na material "+super.getJmeno());

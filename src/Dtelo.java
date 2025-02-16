@@ -6,7 +6,7 @@ public class Dtelo extends Delnik{
     private final int POCET_PLASTU=50;
     @Override
     public void run() {
-        while (true){
+        while (getSoucatsky().maximalnipocetpanenek()){
             System.out.println("Začína vyrábět tělo "+super.getJmeno());
             while (!super.getMaterial().uberplast(POCET_PLASTU)){
                 System.out.println("Čeká na material "+super.getJmeno());
