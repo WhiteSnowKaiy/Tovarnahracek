@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Soucastky {
     private int hlava;
     private int celkem_vyrobeno_hlav;
@@ -9,6 +11,8 @@ public class Soucastky {
     private int celkem_vyrobeno_noh;
     private int panenka;
     private int celkem_vyrobeno_panenek;
+    private int max;
+    Scanner sc=new Scanner(System.in);
 
     public void addhlava(){hlava++;
     celkem_vyrobeno_hlav++;}
@@ -17,12 +21,12 @@ public class Soucastky {
         celkem_vyrobeno_telo++;
     }
     public void addruce(){
-        ruce++;
-        celkem_vyrobeno_ruce++;
+        ruce=ruce+2;
+        celkem_vyrobeno_ruce=celkem_vyrobeno_ruce+2;
     }
     public void addnohy(){
-        nohy++;
-        celkem_vyrobeno_noh++;
+        nohy=nohy+2;
+        celkem_vyrobeno_noh=celkem_vyrobeno_noh+2;
     }
     public void addpanenka(){
         panenka++;
@@ -32,13 +36,20 @@ public class Soucastky {
     public synchronized void  vytvorenipanenky() throws InterruptedException {
         hlava--;
         telo--;
-        ruce--;
-        nohy--;
+        ruce=ruce-2;
+        nohy=nohy-2;
         addpanenka();
     }
 
+
+public final int zadost(){
+    System.out.println("Kolik chcte vytvořit panenek");
+    max=sc.nextInt();
+    return max;
+}
+
     public boolean maximalnipocetpanenek(){
-        if (getPanenka()<10){
+        if (getPanenka()<getMax()){
            return true;
         }
         else {
@@ -66,23 +77,27 @@ public class Soucastky {
         return panenka;
     }
 
-    public int getCelkem_vyrobeno_hlav() {
+    public int getMax() {
+        return max;
+    }
+
+    public synchronized int getCelkem_vyrobeno_hlav() {
         return celkem_vyrobeno_hlav;
     }
 
-    public int getCelkem_vyrobeno_telo() {
+    public synchronized int getCelkem_vyrobeno_telo() {
         return celkem_vyrobeno_telo;
     }
 
-    public int getCelkem_vyrobeno_ruce() {
+    public synchronized int getCelkem_vyrobeno_ruce() {
         return celkem_vyrobeno_ruce;
     }
 
-    public int getCelkem_vyrobeno_noh() {
+    public synchronized int getCelkem_vyrobeno_noh() {
         return celkem_vyrobeno_noh;
     }
 
-    public int getCelkem_vyrobeno_panenek() {
+    public synchronized int getCelkem_vyrobeno_panenek() {
         return celkem_vyrobeno_panenek;
     }
 }

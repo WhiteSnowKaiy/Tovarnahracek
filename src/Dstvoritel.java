@@ -1,17 +1,40 @@
+import java.util.Random;
+
+
 public class Dstvoritel extends Delnik{
     public Dstvoritel(String jmeno, Material material, Soucastky soucatsky) {
         super(jmeno, material, soucatsky);
     }
     private final int POCET_PLASTU=20;
+    Random random = new Random();
+    int vytvoreni_panenky;
+
+
+    public synchronized int getVytvoreni_panenky() {
+        return vytvoreni_panenky;
+    }
+
     @Override
     public void run() {
         while (getSoucatsky().maximalnipocetpanenek()){
             System.out.println("Začína vyrábět panenku "+super.getJmeno());
             try {
                 if (getSoucatsky().getHlava()>0 && getSoucatsky().getTelo()>0
-                    && getSoucatsky().getRuce()>0 && getSoucatsky().getNohy()>0){
-                    System.out.println("Panenka je postavena"+getJmeno());
-                    getSoucatsky().vytvorenipanenky();
+                        && getSoucatsky().getRuce()>=1 && getSoucatsky().getNohy()>=1){
+                    System.out.println("Panenka je postavena "+getJmeno());
+
+                    if (random.nextInt(100+1)<25){
+                        System.out.println("LALALLALALALALALALALALALLALA");
+                        System.out.println("Hračka je vadná");
+                        System.out.println("LALALLALALALALALALALALALLALA");
+                    }
+                    else {
+                        getSoucatsky().vytvorenipanenky();
+                        vytvoreni_panenky++;
+
+                    }
+
+
                 }else {System.out.println("Nejsou soucastky pro panenku") ;
                     Thread.sleep(1000);;
                 }
@@ -19,6 +42,7 @@ public class Dstvoritel extends Delnik{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+
 
             try {
                 Thread.sleep(1000);

@@ -1,6 +1,9 @@
+import java.util.Random;
+
 public class Material {
     private int plast=10000;
     private int vlasy=1000;
+    Random random = new Random();
 
     public synchronized boolean uberplast(int pocet) {
         if (getPlast() >= pocet) {
@@ -19,10 +22,10 @@ public class Material {
     }
 
     public void pridatplast(){
-        plast=plast+550;
+        plast=plast+random.nextInt(1000+1);
     }
     public void pridavlasy(){
-        vlasy=vlasy+6;
+        vlasy=vlasy+random.nextInt(100+1);
     }
 
     public int getPlast() {

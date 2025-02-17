@@ -2,7 +2,7 @@ public class Druce extends Delnik{
     public Druce(String jmeno, Material material, Soucastky soucatsky) {
         super(jmeno, material, soucatsky);
     }
-    private final int POCET_PLASTU=20;
+    private final int POCET_PLASTU=20*2;
     @Override
     public void run() {
         while (getSoucatsky().maximalnipocetpanenek()){

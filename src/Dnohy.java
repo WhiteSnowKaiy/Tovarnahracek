@@ -3,7 +3,7 @@ public class Dnohy extends Delnik{
         super(jmeno, material, soucatsky);
     }
 
-    private final int POCET_PLASTU=30;
+    private final int POCET_PLASTU=30*2;
     @Override
     public void run() {
         while (getSoucatsky().maximalnipocetpanenek()){
