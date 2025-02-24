@@ -24,9 +24,7 @@ public class Dstvoritel extends Delnik{
                     System.out.println("Panenka je postavena "+getJmeno());
 
                     if (random.nextInt(100+1)<25){
-                        System.out.println("LALALLALALALALALALALALALLALA");
                         System.out.println("Hračka je vadná");
-                        System.out.println("LALALLALALALALALALALALALLALA");
                     }
                     else {
                         getSoucatsky().vytvorenipanenky();
@@ -35,7 +33,7 @@ public class Dstvoritel extends Delnik{
                     }
 
 
-                }else {System.out.println("Nejsou soucastky pro panenku") ;
+                } else {System.out.println("Nejsou soucastky pro panenku") ;
                     Thread.sleep(1000);;
                 }
                 System.out.println("Pocet panenek ("+getSoucatsky().getPanenka()+")");
@@ -43,9 +41,8 @@ public class Dstvoritel extends Delnik{
                 throw new RuntimeException(e);
             }
 
-
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

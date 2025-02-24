@@ -11,11 +11,18 @@ public class Soucastky {
     private int celkem_vyrobeno_noh;
     private int panenka;
     private int celkem_vyrobeno_panenek;
-    private int max;
+    private int CelkemZabalenePanenky;
+    private int max;                            // Kolik panenek chce uzivatel
+
     Scanner sc=new Scanner(System.in);
 
-    public void addhlava(){hlava++;
-    celkem_vyrobeno_hlav++;}
+    public void addhlava(){
+        hlava++;
+        celkem_vyrobeno_hlav++;
+    }
+    public void addCelkemZabalenePanenky(){
+        CelkemZabalenePanenky++;
+    }
     public void addtelo(){
         telo++;
         celkem_vyrobeno_telo++;
@@ -42,19 +49,23 @@ public class Soucastky {
     }
 
 
-public final int zadost(){
-    System.out.println("Kolik chcte vytvořit panenek");
-    max=sc.nextInt();
-    return max;
-}
+    public final int zadost(){
+        System.out.println("Kolik chcte vytvořit panenek");
+        max=sc.nextInt();
+        return max;
+    }
 
     public boolean maximalnipocetpanenek(){
-        if (getPanenka()<getMax()){
+        if (getCelkem_vyrobeno_panenek()<getMax()){
            return true;
         }
-        else {
-            return false;
+        return false;
+    }
+    public boolean zabalenePanenky(){
+        if (CelkemZabalenePanenky<getMax()){
+            return true;
         }
+        return false;
     }
 
     public synchronized int getHlava() {
@@ -99,5 +110,8 @@ public final int zadost(){
 
     public synchronized int getCelkem_vyrobeno_panenek() {
         return celkem_vyrobeno_panenek;
+    }
+    public synchronized int getCelkemZabalenePanenky() {
+        return CelkemZabalenePanenky;
     }
 }

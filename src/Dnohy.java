@@ -1,12 +1,18 @@
 public class Dnohy extends Delnik{
-    public Dnohy(String jmeno, Material material, Soucastky soucatsky) {
-        super(jmeno, material, soucatsky);
+    private int pocetVyrobenychKusu = 0;
+    private final int POCET_PLASTU=30*2;
+
+    int getPocetVyrobenychKusu() {
+        return pocetVyrobenychKusu;
     }
 
-    private final int POCET_PLASTU=30*2;
     @Override
     public void run() {
         while (getSoucatsky().maximalnipocetpanenek()){
+            if (getSoucatsky().getMax()*2 <= getSoucatsky().getNohy()){
+                System.out.println("Delnik vytvořil dostatek součástek - Zastavuji");
+                return;
+            }
             System.out.println("Začína vyrábět nohy "+super.getJmeno());
             while (!super.getMaterial().uberplast(POCET_PLASTU)){
                 System.out.println("Vyrobce čeka na material "+super.getJmeno());
@@ -17,12 +23,17 @@ public class Dnohy extends Delnik{
                 }
             }
             getSoucatsky().addnohy();
-            System.out.println("Dokončil nohy("+getSoucatsky().getNohy() +")");
+            pocetVyrobenychKusu++;
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            System.out.println("Dokončil nohy("+getSoucatsky().getNohy() +")");
         }
+        System.out.println(getJmeno() + " vytvořil " + getPocetVyrobenychKusu() + " kusů");
+    }
+    public Dnohy(String jmeno, Material material, Soucastky soucatsky) {
+        super(jmeno, material, soucatsky);
     }
 }
